@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="hu"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{../css/style.css}" href="css/style.css">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>Sikeres küldés</title>
+</head>
+<body>
+
+<div class="topnav">
+  <a href="/">Kapcsolat</a>
+  <form sec:authorize="isAuthenticated()" id="frmlogout" th:action="@{/logout}" method="post">
+    <a href="javascript:{}" onclick="document.getElementById('frmlogout').submit(); return false;">Kijelentkezés</a>
+  </form>
+</div>
+	
+<div class="wrapper">
+	<h1 style="color:#c5ecfd">Az adminnak címzett levél sikeresen elküldve!</h1>
+</div>
+
+</body>
+</html>

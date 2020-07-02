@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="hu"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{../css/style.css}" href="style.css">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>Kapcsolat</title>
+<script src="js/messageValidator.js"></script>
+</head>
+<body>
+<div class="topnav">
+  
+  <form sec:authorize="isAuthenticated()" id="frmlogout" th:action="@{/logout}" method="post">
+    <a href="javascript:{}" onclick="document.getElementById('frmlogout').submit(); return false;">Kijelentkezés</a>
+  </form>
+</div>
+
+
+<div class="wrapper">
+  <div class="title">
+    <h1>Kapcsolat</h1>
+</div>
+
+  <form name="contactMessage" onsubmit="return validation()" th:action="@{/send}" th:object="${message}" method="post" >
+
+	  <div>
+	    <div class="input-fields">
+	      <input type="text" class="input" name="fullName" th:field="*{fullName}"  placeholder="Teljes név" maxlength="60">
+		  <div class="alert" id="errorName"></div>
+	    </div>
+	    
+	    
+	    <div class="input-fields">
+	      <input type="text" class="input" name="subject" th:field="*{subject}" placeholder="Tárgy" maxlength="60">
+		  <div class="alert" id="errorSubject"></div>
+	    </div>
+	    
+	    <div class="msg">
+	      <textarea th:field="*{messageText}" name="messageText" placeholder="Üzenet" maxlength="120"></textarea>
+		  <div class="alert" id="errorMessage"></div> <br/>
+	    </div>
+	    
+	    <input class="btn" type="submit" value="Üzenet elküldése"/> 
+	  </div>
+ 
+ </form>
+
+</div>
+
+
+</body>
+</html>

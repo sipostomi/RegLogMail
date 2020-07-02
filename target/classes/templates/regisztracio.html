@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="hu">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{../css/style.css}" href="css/style.css">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>Regisztráció</title>
+
+<script src="js/registrationValidator.js"></script>
+</head>
+
+
+<body>
+<div class="topnav">
+  <a href="/login">Bejelentkezés</a>
+  <a href="/">Kapcsolat</a>
+  <a class="active" href="/registration">Regisztráció</a>
+</div>
+
+<div class="wrapper">
+  <div class="title">
+    <h1>Regisztráció</h1>
+  </div>
+
+<form name="registration" onsubmit="return validation()" th:action="@{/reg}" th:object="${user}" method="post">
+  
+  <div class="contact-form">
+    <div class="input-fields">
+
+        <input type="text" class="input" th:field="*{email}" name="email" placeholder="Email cím" maxlength="60"/>
+		<div th:if="${hiba}" class="alert">Ilyen e-mail címmel már történt regisztráció!</div>
+		<div class="alert" id="errorEmail"></div>
+		
+		
+		<input type="password" class="input" th:field="*{password}" name="password" placeholder="Jelszó" maxlength="60"/>
+		<div class="alert" id="errorPassword"></div>
+		
+		<input type="password" class="input" name="passwordSecond" placeholder="Jelszó megerősítése" maxlength="60"/>
+		<div class="alert" id="errorPasswordSecond"></div> <br/>
+		
+		<input class="btn" type="submit" value="Regisztráció"/>
+    </div>
+  </div>
+ 
+ </form>
+
+</div>
+
+</body>
+</html>

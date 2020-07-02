@@ -1,0 +1,12 @@
+com\gyakorlas\service\UserServiceImpl.class
+com\gyakorlas\service\UserDetailsImpl.class
+com\gyakorlas\repository\UserRepository.class
+com\gyakorlas\GyakorlasApplication.class
+com\gyakorlas\controller\MyErrorController.class
+com\gyakorlas\entity\Message.class
+com\gyakorlas\entity\Role.class
+com\gyakorlas\config\SecurityConf.class
+com\gyakorlas\entity\User.class
+com\gyakorlas\repository\RoleRepository.class
+com\gyakorlas\controller\HomeController.class
+com\gyakorlas\service\EmailService.class
