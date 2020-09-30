@@ -17,6 +17,9 @@ public class EmailService {
 	@Value("${valami.domain.url}")
 	private String DOMAIN;
 	
+	@Value("${valami.message.to}")
+	private String MESSAGE_TO;
+	
 	private JavaMailSender javaMailSender;
 
 	@Autowired
@@ -49,7 +52,7 @@ public class EmailService {
 		try {
 			message = new SimpleMailMessage();
 			message.setFrom(MESSAGE_FROM);
-			message.setTo("24sipos24@gmail.com");
+			message.setTo(MESSAGE_TO);
 			message.setSubject(m.getSubject());
 			message.setText(m.getFullName() + "\n" + m.getMessageText());
 			javaMailSender.send(message);
